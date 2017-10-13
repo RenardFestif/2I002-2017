@@ -5,7 +5,15 @@ public class TestPlateau{
 				     new Piece(4,2,5,8),new Piece(2,8,7,3),new Piece(8,4,2,6) };
 	PlateauJeu j = new PlateauJeu(tab);
 
-	System.out.println(j.toString());
+	System.out.println(j.toString()+"\n");
+
+	j.alea();
+
+	System.out.println(j.toString()+"\n");
+
+	System.out.println(j.compterErreur());
+	
+	
     }
 }
 

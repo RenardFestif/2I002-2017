@@ -1,5 +1,7 @@
-public class PlateauJeu{
+import java.util.Random;
 
+public class PlateauJeu{
+    private Random r;
     private Piece [] plateau;
 
     public PlateauJeu(Piece p1,Piece p2,Piece p3,Piece p4,Piece p5,Piece p6,Piece p7,Piece p8,Piece p9){
@@ -12,7 +14,7 @@ public class PlateauJeu{
 	    plateau[i]=pieces[i];
     }
 	     
-    public int CompterErreur(){
+    public int compterErreur(){
 	int cptErr=0;
 	for (int hb=0; hb<6;hb++)
 	    cptErr+=(plateau[hb].getB() + plateau[hb+3].getH() == 9) ? 0:1;
@@ -20,7 +22,7 @@ public class PlateauJeu{
 	for (int gd=0; gd<8;gd++){
 	    if (gd==2 || gd==5){
 		gd++;
-		continue;
+		
 	    }
 	    cptErr+=(plateau[gd].getD() + plateau[gd+1].getG() == 9) ? 0:1;
 	}
@@ -59,6 +61,27 @@ public class PlateauJeu{
     public void rotationPT( int i ){
 	plateau[i].rotation();
     }
+
+    public void alea () {
+	r = new Random();
+	Piece aux = null;
+	int alea;
+	for (int i=0; i<9; i++){
+	    alea = r.nextInt(9);
+	    aux = plateau[i].clone();
+	    plateau[i] = plateau[alea].clone();
+		plateau[alea] = aux.clone();
+	}
+    }
+
+    public PlateauJeu clone (){
+	return new PlateauJeu (this.plateau[0],this.plateau[1],this.plateau[2],
+			       this.plateau[3],this.plateau[4],this.plateau[5],
+			       this.plateau[6],this.plateau[7],this.plateau[8]);
+    }
 }
+
+
+		
 	
     

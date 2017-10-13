@@ -22,5 +22,16 @@ public class Piece{
 	    +getG()+" "+getD()
 	   + "\n "+getB()+" \n";
     }
+
+    public void setRotation ( int rotation ){
+	this.iRotation = rotation;
+    }
+
+    public Piece clone(){
+	Piece clone = new Piece(this.cotes[0], this.cotes[1], this.cotes[2], this.cotes[3]);
+	clone.setRotation(this.iRotation);
+	return clone;
+    }
+	    
 }
 
