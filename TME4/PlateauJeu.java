@@ -26,6 +26,39 @@ public class PlateauJeu{
 	}
 	return cptErr;
     }
+
+    public String toString(){
+	String s=" ";
+	for (int i=0 ; i<9; i+=3){
+	    
+	    for(int h=0;h+i<3+i;h++){ // Boucle Haut ligne 1
+    
+		s+= plateau[h+i].getH()+"   ";
+		if (h == 2){
+		    s+="\n";
+
+		    for (int gd=0; gd+i<3+i; gd ++){ //Boucle gauche-droite ligne 1
+
+			s+= plateau[gd+i].getG()+" "+plateau[gd+i].getD()+" ";
+			if ( gd == 2){
+			    s+= "\n ";
+
+			    for (int b = 0; b+i<3+i; b++){ // boucle bas
+
+				s+= plateau[b+i].getB() + "   ";
+			    }
+			}
+		    }
+		}
+	    }
+	    s+="\n\n ";
+	}
+	return s;
+    }
+
+    public void rotationPT( int i ){
+	plateau[i].rotation();
+    }
 }
 	
     

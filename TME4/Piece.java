@@ -13,9 +13,9 @@ public class Piece{
     }
     
     public int getG() {return cotes[(0+iRotation)%4];}
-    public int getH() {return cotes[(0+iRotation)%4];}
-    public int getD() {return cotes[(0+iRotation)%4];}
-    public int getB() {return cotes[(0+iRotation)%4];}
+    public int getH() {return cotes[(1+iRotation)%4];}
+    public int getD() {return cotes[(2+iRotation)%4];}
+    public int getB() {return cotes[(3+iRotation)%4];}
 
     public String toString() {
 	return " "+getH()+" \n"
