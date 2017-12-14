@@ -1,5 +1,12 @@
+
 /MoteurRecherche/build.xml
 /MoteurRecherche/index
 /MoteurRecherche/index_index
 /MoteurRecherche/index_inverted
 /MoteurRecherche/manifest.mf
+/MoteurRecherche/nbprojet
+/MoteurRecherche/test
+
+TME*/*.class
+TM*/*.class
+
