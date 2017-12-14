@@ -4,9 +4,9 @@
 /MoteurRecherche/index_index
 /MoteurRecherche/index_inverted
 /MoteurRecherche/manifest.mf
-/MoteurRecherche/nbproject/*
-/MoteurRecherche/test/*
-/MoteurRecherche/lib/*
+nbproject
+test
+lib
 
 TME*/*.class
 TM*/*.class
