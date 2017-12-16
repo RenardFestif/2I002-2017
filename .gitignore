@@ -7,7 +7,7 @@
 nbproject
 test
 lib
-
+fail/
 TME*/*.class
 TM*/*.class
 
