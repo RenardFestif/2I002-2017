@@ -42,9 +42,7 @@ public class VectorielCartesien extends ModelIR {
         
         HashMap<String, Double> ret = new HashMap<>();
         HashMap<String, String> docs = index.getDocs();
-        
-        
-        
+
         double freqdoc;
         double freqQuery ;
         double somme = 0;
@@ -59,15 +57,9 @@ public class VectorielCartesien extends ModelIR {
                 
                 
                 }
-                System.out.println("Doc : "+entry2.getKey()+"somme pondérée"+somme);
                 ret.put(entry2.getKey(), somme);    // on ajoute la frequence dans la HashMap ret + on remet somme a 0 car on passe au doc suivant
-                somme = 0;
-                
-                          
-            }
-
-      
-        System.out.println("scores ok");
+                somme = 0;                      
+            }   
         return ret;
     
     }
