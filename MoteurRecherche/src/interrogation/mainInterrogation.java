@@ -15,19 +15,19 @@ public class mainInterrogation {
         Index       index       = new Index("index", parser,st);
         index.index("./");
         
-        String query = "young boy" ;
+        String query = "attempt attempt young bradford" ;
 
         ModelIR mod=new Boolean ( index ) ;
         mod.runModel ( query ) ;
 
 
-        /*WeighterTF w = new WeighterTF( index ) ;
+        WeighterTF w = new WeighterTF( index ) ;
         ModelIR modCos = new VectorielCosinus ( index , w) ;
-        System.out.println (modCos.runModel( query ) ) ;*/
+        System.out.println (modCos.runModel( query ) ) ;
 
  
-        WeighterTFIDF w = new WeighterTFIDF( index ) ;
-        ModelIR modCart = new VectorielCartesien ( index , w) ;
+        WeighterTFIDF w1 = new WeighterTFIDF( index ) ;
+        ModelIR modCart = new VectorielCosinus(index , w1) ;
         System.out.println (modCart.runModel ( query ) ) ;
     }
 }

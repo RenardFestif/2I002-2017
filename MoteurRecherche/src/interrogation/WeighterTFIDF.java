@@ -23,13 +23,12 @@ public class WeighterTFIDF extends Weighter{
       	HashMap<String,Integer> tmp= index.getTfsForStem(mot);
 	int nbdoc=0;
 
-	for (HashMap.Entry<String, Integer> entry : tmp.entrySet()){ //Parcours de Hasmap on compte le nb de doc contenant le mot
-		nbdoc++;    
-	}	
+        nbdoc = tmp.entrySet().stream().map((_item) -> 1).reduce(nbdoc, Integer::sum); //Parcours de Hasmap on compte le nb de doc contenant le mot
+        
         HashMap<String,Integer> liste= index.getTfsForDoc(id);
 	int nbelem=0;
 	for (HashMap.Entry<String, Integer> entry : liste.entrySet()){
-            nbelem=nbelem+entry.getValue().intValue();  // dans value il y a  le nombre d'occurence du mot
+            nbelem=nbelem+entry.getValue();  // dans value il y a  le nombre d'occurence du mot
 	}
 
         

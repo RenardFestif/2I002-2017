@@ -1,43 +1,38 @@
 package interrogation;
 
 import indexation.Index;
-import indexation.ParserCISI;
-import indexation.Stemmer;
-import core.Document;
-import java.util.Map;
-import java.util.Iterator;
+
 import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Set;
 
 public class WeighterTF extends Weighter{
-    private Index index;
+   
     public WeighterTF(Index index){
         super(index);
     }
-    public double frequence(String id,String mot){
-        HashMap<String, Integer> p=new HashMap<String, Integer>();
-        HashMap<String, Double> res= new HashMap<String, Double>();
-        p=index.getTfsForDoc(id);
-        double freq =0;
-        int somme=0;
-		for (HashMap.Entry<String,Integer> entry : p.entrySet()){   //On parcours toutes les entrées de p
-                somme+=entry.getValue().intValue();     //nombre total de mots
 
-        }
 
-        for (HashMap.Entry<String,Integer> entry : p.entrySet()){   //On parcours toutes les entrées de p
-             int val =entry.getValue().intValue();  // je récupère la valeur de l'integer
-             double i=val/somme;
-             res.put(entry.getKey(),i);
-              
-        }
+   
+    public double frequence(String id,String word){
         
-        for (HashMap.Entry<String, Double> entry : res.entrySet()){
-              if (entry.getKey().compareTo(mot)==0)
-                    freq=entry.getValue();
-                    
+        HashMap<String, Integer> p=index.getTfsForDoc(id);
+        HashMap<String, Double> res= new HashMap<>();
+        
+        double freq;
+        double occ;
+        double nbword=0;
+        
+        for (HashMap.Entry<String, Integer> entry : p.entrySet()){ //On parcours toutes les entrées de p
+            nbword += p.get(entry.getKey());
         }
+        //nombre total de mots
+        
+        occ = p.get(word);
+        
+        freq = occ/nbword;
+        
+        
+        
+        System.out.println("NB occ "+occ+"\nnombre de mot dans le doc "+nbword+"\nFrequence doc ok !"+freq);
         return freq;
     }
 }

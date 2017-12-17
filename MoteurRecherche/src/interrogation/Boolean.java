@@ -22,8 +22,8 @@ public class Boolean extends ModelIR {
    
     public  HashMap<String, Double> getDocScores (HashMap<String, Integer> queryProcessed){
         
-        HashMap<String, Double> score = new HashMap<String, Double>();
-        HashMap<String,String> docs = new HashMap<String,String>();
+        HashMap<String, Double> score = new HashMap<>();
+        HashMap<String,String> docs = new HashMap<>();
         
         docs = index.getDocs();
         

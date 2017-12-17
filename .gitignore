@@ -11,3 +11,5 @@ fail/
 TME*/*.class
 TM*/*.class
 
+/MoteurRecherche/build/
+/MoteurRecherche/dist/
