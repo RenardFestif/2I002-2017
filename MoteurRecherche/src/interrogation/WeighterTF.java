@@ -20,9 +20,9 @@ public class WeighterTF extends Weighter{
         double nbword=0;
         
         for (HashMap.Entry<String, Integer> entry : p.entrySet()){ //On parcours toutes les entrées de p
-            nbword += p.get(entry.getKey());
+            nbword += p.get(entry.getKey()); //nombre total de mots
         }
-        //nombre total de mots
+       
         
         occ = p.get(word); 
         freq = occ/nbword;

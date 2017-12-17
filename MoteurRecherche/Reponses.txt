@@ -1,0 +1,60 @@
+Exercice 1 - Indexation de la collection
+
+Q1.1
+
+Pour récupérer le texte dans un document, nous pouvons utiliser la méthode getText() de la classe Document.
+
+Q1.2
+
+La hiérarchie des classes de la librairie est :
+	java.lang.Object
+		core.Document
+		indexation.Index
+		indexation.Parser
+			indexation.Paser1
+			indexation.ParserCISI
+		indexation.TextRepresenter
+			indexation.Stemmer
+
+La méthode getTfsForDoc() permet de réucupérer pour chaque mot d'un document le nombre d'occurence.
+La méthode getTfsForStem() permet de récupérer le nombre d'occurence d'un mot dans chaque document.
+
+Q1.3
+
+Les méthodes serialize() et deserialize() sont utile car elles permettent de coder et décoder de l'information en mémoire sous la forme d'une suite d'informations plus petites.
+Dans notre cas, le texte présent dans le fichier cisi.txt serait alors moins lourd en mémoire et plus rapide en execution.
+
+Q1.5
+
+Pour pouvoir utiliser un objet de type HashMap<,>, il faut importer :
+	import java.util.HashMap;
+	import java.util.Iterator;
+	import java.util.LinkedHashMap;
+	import java.util.Map;
+	import java.util.Map.Entry;
+	import java.util.Set;
+
+Initialisation :
+	Map<K, V> map = new HashMap<>();
+	Avec K : Key et V : Value.
+
+Insertion :
+	map.put(K, V);
+
+Accesseur :
+	map.getKey();
+	map.getValue();
+
+Parcours de l'objet :
+	Set<Entry<,>> setMap = map.entrySet();
+    Iterator<Entry<,>> it = setMap.iterator();
+      while(it.hasNext()){
+       	Entry<,> e = it.next();
+       	System.out.println(e.getKey() + " : " + e.getValue());
+    }
+
+ou bien
+
+	for (HashMap.Entry<K,V> entry : map.entrySet()){
+	
+	}
