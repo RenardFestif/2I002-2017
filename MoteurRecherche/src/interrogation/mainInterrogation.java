@@ -15,7 +15,7 @@ public class mainInterrogation {
         Index       index       = new Index("index", parser,st);
         index.index("./");
         
-        String query = "attempt attempt young bradford" ;
+        String query = "young boy" ;
 
         ModelIR mod=new Boolean ( index ) ;
         mod.runModel ( query ) ;

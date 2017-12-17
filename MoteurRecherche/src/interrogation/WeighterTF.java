@@ -15,8 +15,6 @@ public class WeighterTF extends Weighter{
     public double frequence(String id,String word){
         
         HashMap<String, Integer> p=index.getTfsForDoc(id);
-        HashMap<String, Double> res= new HashMap<>();
-        
         double freq;
         double occ;
         double nbword=0;
@@ -26,13 +24,9 @@ public class WeighterTF extends Weighter{
         }
         //nombre total de mots
         
-        occ = p.get(word);
-        
+        occ = p.get(word); 
         freq = occ/nbword;
-        
-        
-        
-        System.out.println("NB occ "+occ+"\nnombre de mot dans le doc "+nbword+"\nFrequence doc ok !"+freq);
+       
         return freq;
     }
 }

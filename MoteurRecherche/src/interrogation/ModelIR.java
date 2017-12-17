@@ -42,7 +42,7 @@ public abstract class ModelIR {
         for (Map.Entry<String , Double> entry : entries ) {
             ret.put(entry.getKey() , entry.getValue());
         }
-        System.out.println("Ranked");
+        
         return ret ;
     }
     
@@ -51,7 +51,7 @@ public abstract class ModelIR {
     public  HashMap<String, Integer> getQueryProcessed (String query){
         TextRepresenter textRep=index.getTextRepresenter ( ) ;
         HashMap<String , Integer> ret=textRep.getTextRepresentation ( query ) ;
-        System.out.println("Query Processed");
+
         return ret ;
     }
    

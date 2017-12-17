@@ -1,15 +1,7 @@
 package interrogation;
 
 import indexation.Index;
-import indexation.ParserCISI;
-import indexation.Stemmer;
-import core.Document;
-import java.util.Map;
-import java.util.Iterator;
 import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Set;
-
 
 
 public class WeighterTFIDF extends Weighter{
@@ -17,28 +9,29 @@ public class WeighterTFIDF extends Weighter{
     public WeighterTFIDF(Index index){
         super(index);
     }
-    public double frequence(String id, String mot){
+    
+    
+    public double frequence(String id, String word){
         double idf;
 
-      	HashMap<String,Integer> tmp= index.getTfsForStem(mot);
-	int nbdoc=0;
+        HashMap<String,Integer> tmp= index.getTfsForStem(word);
+        double nbdoc=0;
+        double nbelem;
+        for (HashMap.Entry<String, Integer> entry1 : tmp.entrySet()){ //nbr mot total dans le doc
+            nbdoc += tmp.get(entry1.getKey());
+        }
 
-        nbdoc = tmp.entrySet().stream().map((_item) -> 1).reduce(nbdoc, Integer::sum); //Parcours de Hasmap on compte le nb de doc contenant le mot
-        
-        HashMap<String,Integer> liste= index.getTfsForDoc(id);
-	int nbelem=0;
-	for (HashMap.Entry<String, Integer> entry : liste.entrySet()){
-            nbelem=nbelem+entry.getValue();  // dans value il y a  le nombre d'occurence du mot
-	}
-
-        
+    
+    
+        nbelem = tmp.get(word); // occurences du mot dans le doc
+    
         WeighterTF wtf = new WeighterTF(index);
- 	idf=nbelem/nbdoc;
- 	idf=Math.log(idf);
- 	idf=(wtf.frequence(id,mot)*idf); 
- 	return idf;
+        idf=nbelem/nbdoc;
+        idf=Math.log(idf);
+        idf=(wtf.frequence(id,word)*idf); 
+        return idf;
 
-	}
+    }
     
   
 }
